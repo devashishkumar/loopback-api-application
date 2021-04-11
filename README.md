@@ -79,4 +79,28 @@ understand how you can continue to add features to this application.
 
 lp4 app
 
-###
+### create model
+
+lp4 model User
+
+### create datasource (db conection)
+
+lb4 datasource
+
+### create repository
+
+lb4 repository user
+
+### create controller
+
+lb4 controller user
+
+### migrate schema
+
+npm run migrate
+
+### rebuild existing schemas (in this case existing tables will drop in db with the new schemas)
+
+npm run migrate -- --rebuild
+
+

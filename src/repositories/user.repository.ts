@@ -1,8 +1,16 @@
-// import {inject} from '@loopback/context';
-// import {DataSourceType, DefaultCrudRepository} from '@loopback/repository';
-// import {User} from '../models';
-// export class UserRepository extends DefaultCrudRepository<User, string> {
-//   constructor(@inject('dataSources.memory') dataSource: DataSourceType) {
-//     super(User, dataSource);
-//   }
-// }
+import {inject} from '@loopback/core';
+import {DefaultCrudRepository} from '@loopback/repository';
+import {MysqldbDataSource} from '../datasources';
+import {User, UserRelations} from '../models';
+
+export class UserRepository extends DefaultCrudRepository<
+  User,
+  typeof User.prototype.id,
+  UserRelations
+> {
+  constructor(
+    @inject('datasources.mysqldb') dataSource: MysqldbDataSource,
+  ) {
+    super(User, dataSource);
+  }
+}
