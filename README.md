@@ -83,7 +83,7 @@ lp4 app
 
 lp4 model User
 
-### create datasource (db conection)
+### create datasource (db connection)
 
 lb4 datasource
 
